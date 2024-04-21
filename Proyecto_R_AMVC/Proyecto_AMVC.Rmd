@@ -1,0 +1,124 @@
+---
+title: "Proyecto"
+author: "Angélica Villagómez"
+date: "2024-04-02"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+
+## Fuente de datos 
+
+Fuente: [Conacyt](https://www.siicyt.gob.mx/index.php/estadisticas/bases-de-datos-abiertas?id=96)
+```{r}
+# carga de Datos
+
+datos <- read.csv("Becas_Nuevas_2014.csv")
+
+#datos <- read.csv("C:\Users\Angie\Desktop\Proyecto_R_AMVC\Becas_Nuevas_2014.csv",header = TRUE, sep = ",", stringsAsFactors = FALSE)
+library(ggplot2)
+
+
+library(modeest)
+```
+
+# 1 Objetivo
+
+Aplicar los conceptos aprendidos durante el curso de R, donde utilizare datos obtnidos de Conacyt los cuales son abiertos para su consulta, este archivo contiene información de las becas que ha ofrecido a diversas instituciones durante el 2014.
+
+# 2 Justificación.
+
+Analizarla base de datos, donde permitirá darnos información de a que instituciones se les brinda mas apoyo de becas.
+
+# 3 Analisis xploratorio de los datos
+A continuación se mostrará la media de las instituciones a las cuales Conacyt les ha brindado algún tipo de beca.
+
+
+
+
+
+```{r}
+head(datos)
+
+#media
+# Con la media obtenemos el promedio del numero de instituciones a las cuales les ha brindado una beca.
+mean(datos$Num_institucion)
+
+#mediana
+# Con la mediana obtenemos el valor que se encuentra justo en medio cuando se ordenan los datos, es decir cuando se ordenan las instituciones.
+
+median(datos$Num_institucion)
+
+```
+# 4 Estadistica inferencial
+
+```{r}
+# Becas brindadas a la UNAM
+
+
+
+#varianza
+var(datos$Num_entidad)
+
+
+
+```
+# 5 Resultados
+
+```{r}
+#suma de total por género
+# class(datos$GENERO)
+
+#Total cuantos Hombres se les ha asignado una beca en el 2014
+masculino <- sum(datos$GENERO==2)
+masculino
+#Total cuantos Hombres se les ha asignado una beca en el 2014
+femenino <- sum(datos$GENERO==1)
+femenino
+
+#se realiza una grafica de pastel para ver la información antes mencionada
+sexo <- c(masculino,femenino)
+pie(sexo)
+
+```
+
+```{r}
+# Áreas de estudio a las cuales se les ha brindado alguna beca concacyt
+FISICOMATEMATICAS<- sum(datos$Num_area==1)
+BIOLOGIAQUIMICA<- sum(datos$Num_area==2)
+MEDICINADELASALUD<- sum(datos$Num_area==3)
+HUMANIDADESDECONDUCTA<- sum(datos$Num_area==4)
+CIENCIASSOCIALES<- sum(datos$Num_area==5)
+BIOTECNOLOGIAAGROPECUARIAS<- sum(datos$Num_area==6)
+INGENIERIAS<- sum(datos$Num_area==7)
+
+Carreras<-c(FISICOMATEMATICAS,
+            BIOLOGIAQUIMICA,
+            MEDICINADELASALUD,
+            HUMANIDADESDECONDUCTA,
+            CIENCIASSOCIALES,
+            BIOTECNOLOGIAAGROPECUARIAS,
+            INGENIERIAS)
+
+# gráfica de barras para ver el porcentaje en las diferentes áreas
+barplot(Carreras,col=rainbow(7),main="Áreas de estudio", xlab = "Área de conocimiento", ylab ="Número de becas")
+```
+
+```{r}
+
+# Debido a que son muchas instituciones, decidi seleccionar a las mas importantes en la CDMX, sin dejar de lado todas las demás instituciones.
+UNAM<-sum(datos$INSTITUCION.DESTINO=="UNAM")
+UNAM
+UAM<-sum(datos$INSTITUCION.DESTINO=="UAM")
+UAM
+IPN<-sum(datos$INSTITUCION.DESTINO=="IPN")
+IPN
+total <- nrow(datos)
+total
+OTROS <-total-(UNAM+UAM+IPN)
+OTROS
+Instituciones<-c(UNAM,UAM,IPN,OTROS)
+barplot(Instituciones,col=rainbow(4),main="Instituciones", xlab = "Instituciones", ylab ="Número de becas")
+```
+

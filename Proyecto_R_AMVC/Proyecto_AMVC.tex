@@ -1,0 +1,373 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Proyecto},
+  pdfauthor={Angélica Villagómez},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Proyecto}
+\author{Angélica Villagómez}
+\date{2024-04-02}
+
+\begin{document}
+\maketitle
+
+\hypertarget{fuente-de-datos}{%
+\subsection{Fuente de datos}\label{fuente-de-datos}}
+
+Fuente:
+\href{https://www.siicyt.gob.mx/index.php/estadisticas/bases-de-datos-abiertas?id=96}{Conacyt}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# carga de Datos}
+
+\NormalTok{datos }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"Becas\_Nuevas\_2014.csv"}\NormalTok{)}
+
+\CommentTok{\#datos \textless{}{-} read.csv("C:\textbackslash{}Users\textbackslash{}Angie\textbackslash{}Desktop\textbackslash{}Proyecto\_R\_AMVC\textbackslash{}Becas\_Nuevas\_2014.csv",header = TRUE, sep = ",", stringsAsFactors = FALSE)}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'ggplot2' was built under R version 4.3.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(modeest)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'modeest' was built under R version 4.3.3
+\end{verbatim}
+
+\hypertarget{objetivo}{%
+\section{1 Objetivo}\label{objetivo}}
+
+Aplicar los conceptos aprendidos durante el curso de R, donde utilizare
+datos obtnidos de Conacyt los cuales son abiertos para su consulta, este
+archivo contiene información de las becas que ha ofrecido a diversas
+instituciones durante el 2014.
+
+\hypertarget{justificaciuxf3n.}{%
+\section{2 Justificación.}\label{justificaciuxf3n.}}
+
+Analizarla base de datos, donde permitirá darnos información de a que
+instituciones se les brinda mas apoyo de becas.
+
+\hypertarget{analisis-xploratorio-de-los-datos}{%
+\section{3 Analisis xploratorio de los
+datos}\label{analisis-xploratorio-de-los-datos}}
+
+A continuación se mostrará la media de las instituciones a las cuales
+Conacyt les ha brindado algún tipo de beca.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{head}\NormalTok{(datos)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    APELLIDO.PATERNO APELLIDO.MATERNO        NOMBRE Num_area
+## 1 FERNANDEZ DE LARA           TORRES  PAOLA AYERIM        3
+## 2             CASAS          ACEVEDO         AARON        7
+## 3           ANTONIO             RUIZ          ABIF        7
+## 4          MONTALVO         MARTINEZ       ABIGAIL        1
+## 5             COLIN          AGUILAR ABILENE GISEH        2
+## 6            GARCIA          ALVAREZ ABISH MARIANA        2
+##                       AREA.DE.CONOCIMIENTO NIVEL Num_institucion
+## 1          III. MEDICINA Y CS. DE LA SALUD     3               3
+## 2                         VII. INGENIERIAS     2             101
+## 3                         VII. INGENIERIAS     2             149
+## 4 I. FISICO MATEMATICAS Y CS. DE LA TIERRA     2              79
+## 5                   II. BIOLOGIA Y QUIMICA     2               1
+## 6                   II. BIOLOGIA Y QUIMICA     2              52
+##                          INSTITUCION.DESTINO  ENTIDAD.FEDERATIVA Num_entidad
+## 1                                       BUAP              PUEBLA          21
+## 2                                 IT DURANGO             DURANGO          10
+## 3               SISTEMAS TECNICOS DE CONTROL              PUEBLA          21
+## 4                                     INIFAP             JALISCO          14
+## 5 AGENCIA ALEMANA DE COOPERACION TECNICA-GIZ BAJA CALIFORNIA SUR           3
+## 6                                     ECOSUR             CHIAPAS           7
+##   GENERO
+## 1      1
+## 2      2
+## 3      2
+## 4      1
+## 5      1
+## 6      1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#media}
+\CommentTok{\# Con la media obtenemos el promedio del numero de instituciones a las cuales les ha brindado una beca.}
+\FunctionTok{mean}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{Num\_institucion)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 124.2837
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#mediana}
+\CommentTok{\# Con la mediana obtenemos el valor que se encuentra justo en medio cuando se ordenan los datos, es decir cuando se ordenan las instituciones.}
+
+\FunctionTok{median}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{Num\_institucion)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 155.5
+\end{verbatim}
+
+\hypertarget{estadistica-inferencial}{%
+\section{4 Estadistica inferencial}\label{estadistica-inferencial}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Becas brindadas a la UNAM}
+
+
+
+\CommentTok{\#varianza}
+\FunctionTok{var}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{Num\_entidad)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 63.19078
+\end{verbatim}
+
+\hypertarget{resultados}{%
+\section{5 Resultados}\label{resultados}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#suma de total por género}
+\CommentTok{\# class(datos$GENERO)}
+
+\CommentTok{\#Numero de datos}
+\NormalTok{masculino }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{GENERO}\SpecialCharTok{==}\DecValTok{2}\NormalTok{)}
+\NormalTok{masculino}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 602
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{femenino }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{GENERO}\SpecialCharTok{==}\DecValTok{1}\NormalTok{)}
+\NormalTok{femenino}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 674
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sexo }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(masculino,femenino)}
+\FunctionTok{pie}\NormalTok{(sexo)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Proyecto_AMVC_files/figure-latex/unnamed-chunk-4-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{FISICOMATEMATICAS}\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{Num\_area}\SpecialCharTok{==}\DecValTok{1}\NormalTok{)}
+\NormalTok{BIOLOGIAQUIMICA}\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{Num\_area}\SpecialCharTok{==}\DecValTok{2}\NormalTok{)}
+\NormalTok{MEDICINADELASALUD}\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{Num\_area}\SpecialCharTok{==}\DecValTok{3}\NormalTok{)}
+\NormalTok{HUMANIDADESDECONDUCTA}\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{Num\_area}\SpecialCharTok{==}\DecValTok{4}\NormalTok{)}
+\NormalTok{CIENCIASSOCIALES}\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{Num\_area}\SpecialCharTok{==}\DecValTok{5}\NormalTok{)}
+\NormalTok{BIOTECNOLOGIAAGROPECUARIAS}\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{Num\_area}\SpecialCharTok{==}\DecValTok{6}\NormalTok{)}
+\NormalTok{INGENIERIAS}\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{Num\_area}\SpecialCharTok{==}\DecValTok{7}\NormalTok{)}
+
+\NormalTok{Carreras}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(FISICOMATEMATICAS,}
+\NormalTok{            BIOLOGIAQUIMICA,}
+\NormalTok{            MEDICINADELASALUD,}
+\NormalTok{            HUMANIDADESDECONDUCTA,}
+\NormalTok{            CIENCIASSOCIALES,}
+\NormalTok{            BIOTECNOLOGIAAGROPECUARIAS,}
+\NormalTok{            INGENIERIAS)}
+\FunctionTok{barplot}\NormalTok{(Carreras,}\AttributeTok{col=}\FunctionTok{rainbow}\NormalTok{(}\DecValTok{7}\NormalTok{),}\AttributeTok{main=}\StringTok{"Áreas de estudio"}\NormalTok{, }\AttributeTok{xlab =} \StringTok{"Área de conocimiento"}\NormalTok{, }\AttributeTok{ylab =}\StringTok{"Número de becas"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Proyecto_AMVC_files/figure-latex/unnamed-chunk-5-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{UNAM}\OtherTok{\textless{}{-}}\FunctionTok{sum}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{INSTITUCION.DESTINO}\SpecialCharTok{==}\StringTok{"UNAM"}\NormalTok{)}
+\NormalTok{UNAM}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 175
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{UAM}\OtherTok{\textless{}{-}}\FunctionTok{sum}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{INSTITUCION.DESTINO}\SpecialCharTok{==}\StringTok{"UAM"}\NormalTok{)}
+\NormalTok{UAM}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 44
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{IPN}\OtherTok{\textless{}{-}}\FunctionTok{sum}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{INSTITUCION.DESTINO}\SpecialCharTok{==}\StringTok{"IPN"}\NormalTok{)}
+\NormalTok{IPN}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 66
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{total }\OtherTok{\textless{}{-}} \FunctionTok{nrow}\NormalTok{(datos)}
+\NormalTok{total}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1276
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{OTROS }\OtherTok{\textless{}{-}}\NormalTok{total}\SpecialCharTok{{-}}\NormalTok{(UNAM}\SpecialCharTok{+}\NormalTok{UAM}\SpecialCharTok{+}\NormalTok{IPN)}
+\NormalTok{OTROS}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 991
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Instituciones}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(UNAM,UAM,IPN,OTROS)}
+\FunctionTok{barplot}\NormalTok{(Instituciones,}\AttributeTok{col=}\FunctionTok{rainbow}\NormalTok{(}\DecValTok{4}\NormalTok{),}\AttributeTok{main=}\StringTok{"Instituciones"}\NormalTok{, }\AttributeTok{xlab =} \StringTok{"Instituciones"}\NormalTok{, }\AttributeTok{ylab =}\StringTok{"Número de becas"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Proyecto_AMVC_files/figure-latex/unnamed-chunk-6-1.pdf}
+
+\end{document}
